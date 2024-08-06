@@ -52,6 +52,10 @@ function mix(a,b){
             }
         }
     }
+    let str = ''
+    for (let i = 0 ; i < arrA.length || i < arrB.length ; i++){
+        
+    }
 
     return [arrA, arrB]
 }
