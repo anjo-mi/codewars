@@ -5,7 +5,9 @@ function convertFrac(list){
             arr.push(el[1])
         }
     })
+    console.log(arr)
     let highestDenom = arr.reduce((a,el) => a * el, 1)
+    console.log(highestDenom)
     let possDenoms = []
 
 
@@ -18,18 +20,31 @@ function convertFrac(list){
         }
     }
 
+
+    console.log(possDenoms)
     let worksForAll = []
 
+    
     for (let i = 0 ; i < possDenoms.length ; i ++){
+        let trueOrFalse = []
         for (let j = 0 ; j < arr.length ; j++){
             if (possDenoms[i] % arr[j] === 0){
-                worksForAll.push(possDenoms[i])
+                trueOrFalse.push(true)
+            }else{
+                trueOrFalse.push(false)
             }
-        }
+        }if(trueOrFalse.every(el => el)){
+            worksForAll.push(possDenoms[i])
+        } 
     }
-
-    let lowest = Math.min([...worksForAll])
+    console.log(worksForAll)
+    let lowest = Math.min(...worksForAll)
     return lowest
-  }
+}
+
+// function checkAll(arrOfOrig, arrOfDenoms){
+//     return arrOfDenoms.filter(el=> arrOfDenoms.every(el => el !== (arrOfOrig.some(el => el) % 2) === 0))
+// }
+
 
 console.log(convertFrac([[1,2],[1,3],[1,4]]))
