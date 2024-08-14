@@ -1,13 +1,14 @@
 function convertFrac(list){
+
     let arr = []
     list.forEach(el => {
         if(!arr.includes(el[1])){
             arr.push(el[1])
         }
     })
-    console.log(arr)
+
     let highestDenom = arr.reduce((a,el) => a * el, 1)
-    console.log(highestDenom)
+
     let possDenoms = []
 
 
@@ -21,7 +22,7 @@ function convertFrac(list){
     }
 
 
-    console.log(possDenoms)
+
     let worksForAll = []
 
     
@@ -37,9 +38,15 @@ function convertFrac(list){
             worksForAll.push(possDenoms[i])
         } 
     }
-    console.log(worksForAll)
+
     let lowest = Math.min(...worksForAll)
-    return lowest
+
+    for (let i = 0 ; i < list.length ; i++){
+        let mult = lowest / list[i][1]
+        list[i][0] *= mult
+        list[i][1] *= mult
+    }
+    return list
 }
 
 // function checkAll(arrOfOrig, arrOfDenoms){
