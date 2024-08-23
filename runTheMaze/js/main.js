@@ -29,6 +29,7 @@ function mazeRunner(maze, directions) {
 
     }
     if (placeOnBoard.every(el => el === 0)) return 'lost'
+    return 'lost'
   }
 
   var maze = [[1,1,1,1,1,1,1],
