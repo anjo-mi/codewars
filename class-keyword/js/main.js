@@ -2,46 +2,38 @@ class KeywordCipher{
     constructor(abc, key){
       this.abc = abc
       this.key = key
+      this.encoded = this.createCode()
     }
     
     createCode(){
       let alpha = this.abc.split('')
-      let word = this.key.split('')
-      let keyedBeta = word.reduce( (a,el,i) => {
-        a[el] = a[el] || ( alpha.indexOf(el) + 1 )
-        return a
-      } , {} )
+      let word =   [...new Set(this.key.split(''))]
+      
 
-    //   console.log(alpha,word,keyedBeta)
-      for ( let key in keyedBeta ){
-        if (alpha.includes(key)){
-          let letter = alpha.splice( alpha.indexOf(key) , 1)
+      word.forEach(char =>{
+        const i = alpha.indexOf(char)
+        if ( i !== -1 ){
+            alpha.splice(i , 1)
         }
-      }
-      alpha = word.concat(alpha)
-      return alpha
+      })
+
+      return word.concat(alpha)
     }
+    //   console.log(alpha,word,keyedBeta)
+    
     
     encode(str){
-      let coded = this.createCode()
-      str = str.split('')
-      for (let i = 0 ; i < str.length ; i++){
-        let index = this.abc.indexOf(str[i])
-        str[i] = coded[index]
-      }
-      return str.join('')
-        
+      return str.split('').map(char => {
+        let i = this.abc.indexOf(char)
+        return i !== -1 ? this.encoded[i] : char
+      }).join('')        
     }
     
     decode(str){
-        let coded = this.createCode()
-        str = str.split('')
-        for (let i = 0 ; i < str.length ; i++){
-            let index = coded.indexOf(str[i])
-            str[i] = this.abc[index]
-        }
-        return str.join('')
-      
+      return str.split('').map(char => {
+        let i = this.encoded.indexOf(char)
+        return i !== -1 ? this.abc[i] : char
+      }).join('')
     }
   }
 
