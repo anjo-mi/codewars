@@ -66,6 +66,22 @@ class Character {
       
     }
     
+    strangeFruit(a,b,c){
+        a += this.strength
+        b += this.dexterity
+        c += this.intelligence
+        
+        this.log.push(`${this.name} ate a strange fruit... 
+        str: ${this.strength}-->${a}
+        str: ${this.dexterity}-->${b}
+        str: ${this.intelligence}-->${c}`)
+        
+        this.strength = a
+        this.dexterity = b
+        this.intelligence = c
+        
+    }
+
     eventLog() {
       return this.log
     }
