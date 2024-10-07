@@ -37,6 +37,7 @@ class Character {
                                           target.weapon.name + '(enhanced)')
               target.inventory.push(target.weapon)
               target.inventory.splice(ind,1)
+              target.chooseWeapon(target.inventory)
               return target.weapon
             }
           }
@@ -62,26 +63,45 @@ class Character {
     
     function (str = 0, dex = 0, int = 0, pow = 0){
       this.weapon = new Weapon(str,dex,int,pow)
+      this.chooseWeapon(this.inventory)
       this.log.push(`${ this.name } finds ${ this.weapon.name }`)
       
     }
     
-    strangeFruit(a,b,c){
-        a += this.strength
-        b += this.dexterity
-        c += this.intelligence
+    chooseWeapon(arr){
+      if (arr == []) return
+      arr.sort((a,b) => (a.str * this.strength + 
+                         a.dex * this.dexterity + 
+                         a.int * this.intelligence + 
+                         a.pow)
+                                              - 
+                       ( b.str * this.strength + 
+                         b.dex * this.dexterity + 
+                         b.int * this.intelligence + 
+                         b.pow)
+               )
+      this.weapon = arr[arr.length - 1]
         
-        this.log.push(`${this.name} ate a strange fruit... 
-        str: ${this.strength}-->${a}
-        str: ${this.dexterity}-->${b}
-        str: ${this.intelligence}-->${c}`)
-        
-        this.strength = a
-        this.dexterity = b
-        this.intelligence = c
-        
+               
     }
-
+    
+    strangeFruit(a,b,c){
+      a += this.strength
+      b += this.dexterity
+      c += this.intelligence
+      
+      this.log.push(`${this.name} ate a strange fruit... 
+      str: ${this.strength}-->${a}
+      str: ${this.dexterity}-->${b}
+      str: ${this.intelligence}-->${c}`)
+      
+      this.strength = a
+      this.dexterity = b
+      this.intelligence = c
+      
+      this.chooseWeapon(this.inventory)
+      
+    }  
     eventLog() {
       return this.log
     }
