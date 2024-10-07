@@ -106,7 +106,14 @@ class Character {
       
       this.chooseWeapon(this.inventory)
       
-    }  
+    }
+    
+    ancientBook(a,b,c){
+      this.strength = this.strength + a > 0 ? this.strength + a : 0
+      this.dexterity = this.dexterity + a > 0 ? this.dexterity + a : 0
+      this.intelligence = this.intelligence + a > 0 ? this.intelligence + a : 0
+    }
+    
     eventLog() {
       return this.log.join('\n')
     }
