@@ -24,6 +24,7 @@ class Character {
               weaponName.splice(indeces[1] + 1 , 1 , ' ', weaponName[indeces[1] + 1].toLowerCase())
               weaponName = weaponName[0].toUpperCase() + weaponName.slice(1).join('')
               target.weapon = new Weapon(str,dex,int,pow,weaponName)
+              target.log.push(`${target.name} finds '${target.weapon.name}'`)
               let x = target.inventory.find(el => el.name === target.weapon.name)
               let ind = target.inventory.indexOf(x)
               if (ind === -1){
@@ -63,8 +64,9 @@ class Character {
     
     function (str = 0, dex = 0, int = 0, pow = 0){
       this.weapon = new Weapon(str,dex,int,pow)
-      this.chooseWeapon(this.inventory)
+      console.log(this.weapon)
       this.log.push(`${ this.name } finds ${ this.weapon.name }`)
+      this.chooseWeapon(this.inventory)
       
     }
     
@@ -86,24 +88,27 @@ class Character {
     }
     
     strangeFruit(a,b,c){
-      a += this.strength
-      b += this.dexterity
-      c += this.intelligence
-      
-      this.log.push(`${this.name} ate a strange fruit... 
-      str: ${this.strength}-->${a}
-      str: ${this.dexterity}-->${b}
-      str: ${this.intelligence}-->${c}`)
-      
-      this.strength = a
-      this.dexterity = b
-      this.intelligence = c
+      let str = ''
+      let newStats = []
+      if (a || b || c) str = 'Strange fruit: '
+      if (a) newStats.push(`strength ${(() => a > 0 ? '+' + a : a)()}`)
+      if (b) newStats.push(`dexterity ${b > 0 ? '+' + b : b}`)
+      if (c) newStats.push(`intelligence ${c > 0 ? '+' + c : c}`)
+      str = str + newStats.join(', ')
+      if (str) this.log.push(str)
+      if (a) a += this.strength
+      if (b) b += this.dexterity
+      if (c) c += this.intelligence
+          
+      if (a) this.strength = a
+      if (b) this.dexterity = b
+      if (c) this.intelligence = c
       
       this.chooseWeapon(this.inventory)
       
     }  
     eventLog() {
-      return this.log
+      return this.log.join('\n')
     }
     
   }
@@ -117,4 +122,5 @@ class Character {
       this.pow = pow
       this.name = name
     }
+    
   }
