@@ -48,6 +48,7 @@ class Character {
     }
   
     characterInfo() {
+      this.chooseWeapon(this.inventory)
       let damage = this.strength + this.intelligence + this.dexterity
       if (this.weapon instanceof Weapon && this.weapon.name !== 'limbs'){
         damage = this.weapon.str * this.strength + 
@@ -65,9 +66,10 @@ class Character {
                this.weapon.name + ' ' + damage + ' dmg' ].join('\n')
     }
     
+    
+    
     function (str = 0, dex = 0, int = 0, pow = 0){
       this.weapon = new Weapon(str,dex,int,pow)
-      console.log(this.weapon)
       this.log.push(`${ this.name } finds ${ this.weapon.name }`)
       this.chooseWeapon(this.inventory)
       
@@ -87,8 +89,10 @@ class Character {
         if (x !== y){
           return y - x
         }
+        console.log(a.name, b.name)
         return a.name.localeCompare(b.name)
       })
+      console.log(arr)
       this.weapon = arr[0]
         
                
