@@ -3,8 +3,8 @@ class Character {
     constructor(obj){
       this.name = obj.name || 'Hero'
       this.strength = obj.strength || 10
-      this.intelligence = obj.intelligence || 10
       this.dexterity = obj.dexterity || 10
+      this.intelligence = obj.intelligence || 10
       this.weapon = new Weapon(0,0,0,0, 'limbs')
       this.inventory = [this.weapon]
       this.log = []
@@ -89,37 +89,38 @@ class Character {
         if (x !== y){
           return y - x
         }
-        console.log(a.name, b.name)
         return a.name.localeCompare(b.name)
       })
-      console.log(arr)
       this.weapon = arr[0]
         
                
     }
     
     strangeFruit(a,b,c){
+      console.log(a,this.strength,b,this.dexterity, c, this.intelligence)
       let str = ''
       let newStats = []
+      this.strength = Math.max(0, this.strength + a)
+      this.dexterity = Math.max(0, this.dexterity + b)
+      this.intelligence = Math.max(0, this.intelligence + c)
+      function addSign(num){
+        if (num > 0) return '+' + num
+        if (num < 0) return num.toString()
+      }
       if (a || b || c) str = 'Strange fruit: '
-      if (a) newStats.push(`strength ${(() => a > 0 ? '+' + a : a)()}`)
-      if (b) newStats.push(`dexterity ${b > 0 ? '+' + b : b}`)
-      if (c) newStats.push(`intelligence ${c > 0 ? '+' + c : c}`)
+      if (a) newStats.push(`strength ${addSign(a)}`)
+      if (b) newStats.push(`dexterity ${addSign(b)}`)
+      if (c) newStats.push(`intelligence ${addSign(c)}`)
       str = str + newStats.join(', ')
       if (str) this.log.push(str)
-      if (a) a += this.strength
-      if (b) b += this.dexterity
-      if (c) c += this.intelligence
-          
-      if (a) this.strength = a
-      if (b) this.dexterity = b
-      if (c) this.intelligence = c
       
+      console.log(a,this.strength,b,this.dexterity, c, this.intelligence)
       this.chooseWeapon(this.inventory)
       
     }
     
     ancientBook(a,b,c){
+      console.log(a,b,c)
       this.strength = Math.max(0, this.strength + a)
       this.dexterity = Math.max(0, this.dexterity + b)
       this.intelligence = Math.max(0, this.intelligence + c)
