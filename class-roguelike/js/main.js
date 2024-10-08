@@ -55,6 +55,9 @@ class Character {
                  this.weapon.int * this.intelligence + 
                  this.weapon.pow
       }
+      if (this.weapon.name === 'limbs'){
+        damage = this.strength + this.dexterity + this.intelligence
+      }
       return [ this.name, 
                'str ' + this.strength , 
                'dex ' + this.dexterity , 
@@ -72,17 +75,21 @@ class Character {
     
     chooseWeapon(arr){
       if (arr == []) return
-      arr.sort((a,b) => (a.str * this.strength + 
-                         a.dex * this.dexterity + 
-                         a.int * this.intelligence + 
-                         a.pow)
-                                              - 
-                       ( b.str * this.strength + 
-                         b.dex * this.dexterity + 
-                         b.int * this.intelligence + 
-                         b.pow)
-               )
-      this.weapon = arr[arr.length - 1]
+      arr.sort((a,b) => {
+        let x = (a.str * this.strength + 
+                 a.dex * this.dexterity + 
+                 a.int * this.intelligence + 
+                 a.pow) 
+        let y = (b.str * this.strength + 
+                 b.dex * this.dexterity + 
+                 b.int * this.intelligence + 
+                 b.pow)
+        if (x !== y){
+          return y - x
+        }
+        return a.name.localeCompare(b.name)
+      })
+      this.weapon = arr[0]
         
                
     }
@@ -109,9 +116,9 @@ class Character {
     }
     
     ancientBook(a,b,c){
-      this.strength = this.strength + a > 0 ? this.strength + a : 0
-      this.dexterity = this.dexterity + a > 0 ? this.dexterity + a : 0
-      this.intelligence = this.intelligence + a > 0 ? this.intelligence + a : 0
+      this.strength = Math.max(0, this.strength + a)
+      this.dexterity = Math.max(0, this.dexterity + b)
+      this.intelligence = Math.max(0, this.intelligence + c)
     }
     
     eventLog() {
