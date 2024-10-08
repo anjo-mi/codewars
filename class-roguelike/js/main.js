@@ -25,7 +25,9 @@ class Character {
               weaponName = weaponName[0].toUpperCase() + weaponName.slice(1).join('')
               target.weapon = new Weapon(str,dex,int,pow,weaponName)
               target.log.push(`${target.name} finds '${target.weapon.name}'`)
-              let x = target.inventory.find(el => el.name === target.weapon.name)
+              let x = target.inventory.find(el => !el.name.includes('(enhanced)') && 
+                                                  el.name === (target.weapon.name || 
+                                                               target.weapon.name + '(enhanced)'))
               let ind = target.inventory.indexOf(x)
               if (ind === -1){
                 target.inventory.push(target.weapon)
