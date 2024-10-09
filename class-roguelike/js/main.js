@@ -10,6 +10,9 @@ class Character {
       this.log = []
       return new Proxy(this, {
         get(target, prop, rec){
+          if (prop in target){
+            return target[prop]
+          }
           if (typeof prop === 'string' && !target[prop] && prop.includes('Of')){
             return function(str,dex,int,pow){
               let weaponName = prop.split('')
@@ -43,8 +46,42 @@ class Character {
               target.chooseWeapon(target.inventory)
               return target.weapon
             }
+          }else if(typeof prop === 'string' && !target[prop] && !prop.includes('Of')){
+            return function(a,b,c){
+              console.log(target.strength, target.dexterity, target.intelligence)
+              a = +a || 0
+              b = +b || 0
+              c = +c || 0
+              
+              let eventName = prop.split('')
+              
+              let num = -1
+              
+              for (let i = 0 ; i < eventName.length ; i++){
+                if (eventName[i] === eventName[i].toUpperCase()){
+                  num = i
+                }
+              }
+              if (num < 1) throw new Error(`invalid event occurring`)
+              eventName[num] = eventName[num].toLowerCase()
+              eventName.splice(num, 0, ' ')
+              eventName = eventName[0].toUpperCase() + eventName.slice(1).join('')
+              
+              let newName = []
+              if (a) newName.push(`strength ${a > 0 ? '+' + a : a}`)
+              if (b) newName.push(`dexterity ${b > 0 ? '+' + b : b}`)
+              if (c) newName.push(`intelligence ${c > 0 ? '+' + c : c}`)
+              target.strength = Math.max(0, target.strength + a)
+              target.dexterity = Math.max(0, target.dexterity + b)
+              target.intelligence = Math.max(0, target.intelligence + c)
+              
+              target.log.push(`${eventName}: ${newName.join(', ')}`)
+              target.chooseWeapon(target.inventory)
+              console.log(prop, a + ' > ' + target.strength, b + ' > ' +  target.dexterity, c + ' > ' +  target.intelligence)
+              console.log(target.log)
+              return target
+            }
           }
-          return Reflect.get(target, prop, rec)
         }
       })
     }
@@ -96,36 +133,6 @@ class Character {
       this.weapon = arr[0]
         
                
-    }
-    
-    strangeFruit(a,b,c){
-      console.log(a,this.strength,b,this.dexterity, c, this.intelligence)
-      let str = ''
-      let newStats = []
-      this.strength = Math.max(0, this.strength + a)
-      this.dexterity = Math.max(0, this.dexterity + b)
-      this.intelligence = Math.max(0, this.intelligence + c)
-      function addSign(num){
-        if (num > 0) return '+' + num
-        if (num < 0) return num.toString()
-      }
-      if (a || b || c) str = 'Strange fruit: '
-      if (a) newStats.push(`strength ${addSign(a)}`)
-      if (b) newStats.push(`dexterity ${addSign(b)}`)
-      if (c) newStats.push(`intelligence ${addSign(c)}`)
-      str = str + newStats.join(', ')
-      if (str) this.log.push(str)
-      
-      console.log(a,this.strength,b,this.dexterity, c, this.intelligence)
-      this.chooseWeapon(this.inventory)
-      
-    }
-    
-    ancientBook(a,b,c){
-      console.log(a,b,c)
-      this.strength = Math.max(0, this.strength + a)
-      this.dexterity = Math.max(0, this.dexterity + b)
-      this.intelligence = Math.max(0, this.intelligence + c)
     }
     
     eventLog() {
