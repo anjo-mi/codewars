@@ -28,22 +28,40 @@ function mix(s1, s2) {
     for (let letter in a){
       if (b.hasOwnProperty(letter)){
         a[letter].length > b[letter].length ? c[`(${letter}) 1:`] = a[letter] : 
-        a[letter].length < b[letter].length ? c[`(${letter}) 2:`] = b[letter]: c[`(${letter}) =:`] = a[letter]
+        a[letter].length < b[letter].length ? c[`(${letter}) 2:`] = b[letter] : c[`(${letter}) =:`] = a[letter]
+      }else{
+        c[`(${letter}) 1:`] = a[letter]
       }
     }
     for (let letter in b){
       if (!c[`(${letter}) 2:`] && !c[`(${letter}) 1:`] && !c[`(${letter}) =:`]) c[`(${letter}) 2:`] = b[letter]
     }
-    console.log(c)
     let arr = []
     for (let char in c){
       arr.push( char.split(' ')[1] + c[char] )
     }
-    arr.sort((a,b) => b.length - a.length)
-    console.log(arr)
+    arr.sort((a, b) => {
+      if (a.length !== b.length) {
+        return b.length - a.length;
+      }
+      
+      const [aPref, aSuff] = a.split(':');
+      const [bPref, bSuff] = b.split(':');
+      
+      if (aPref !== bPref) {
+        if (aPref === '=') return 1
+        if (bPref === '=') return -1
+        return parseInt(aPref) - parseInt(bPref)
+      }
+      
+      return aSuff.localeCompare(bSuff);
+    });
+    return arr.join('/')
     
     
   }
+  
+  
 
 
   console.log(mix("Are they here", "yes, they are here"), "2:eeeee/2:yy/=:hh/=:rr")
