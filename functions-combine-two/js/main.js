@@ -4,6 +4,8 @@ function compose(f,g) {
     }
   }
 
+  // const compose = (f,g) => (...a) => f(g(...a)s)
+
 
   let add1 = function(a){return a + 1}
   const id = function(a){return a}
