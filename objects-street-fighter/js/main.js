@@ -18,13 +18,13 @@ class Fighter{
     }
 
     takeDamage(target){
-        this.health -= Math.round(target.power / 5)
+        this.health -= Math.round(target.power / 3)
         if (target.special.hasOwnProperty('stymie')) {
             this.speed -= Math.round(target.power / 10)
             console.log(`${this.name} takes ${Math.round(target.power / 5)} damage and is slowed ${+(((Math.round(target.power / 10)) / this.speed).toFixed(2)) * 100}%!`)
         }
         else {
-            console.log(`${this.name} takes ${Math.round(target.power / 5)} damage!`)
+            console.log(`${this.name} takes ${Math.round(target.power / 5)} damage from${target.name}!`)
         }
     }
 
