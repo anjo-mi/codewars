@@ -27,6 +27,16 @@
 //          - addedXP = 20 * diff * diff, +addedXP experience
 //          - RETURN 'An intense fight'
 
+    // warrior.training([1,2,3])
+//      - warrior.achievements = []
+//      - 1 is desc 'you defeated kaido'
+//      - 2 is XP gained from training
+//      - 3 is minLevel required to train
+//          - if warrior.level >= minLevel, +XP experience
+//              - warrior.achievements.push(desc)
+//              - RETURN desc
+//          - if warrior.level < minLevel, RETURN 'Not strong enough'
+
 
 class Warrior{
     constructor(name){
@@ -88,14 +98,14 @@ class Warrior{
         }
     }
 
-    // warrior.training([1,2,3])
-//      - warrior.achievements = []
-//      - 1 is desc 'you defeated kaido'
-//      - 2 is XP gained from training
-//      - 3 is minLevel required to train
-//          - if warrior.level >= minLevel, +XP experience
-//              - warrior.achievements.push(desc)
-//              - RETURN desc
-//          - if warrior.level < minLevel, RETURN 'Not strong enough'
 
+    training(regimen){
+        const [ desc, xp, minLevel ] = regimen;
+        if (this.level < minLevel){
+            return 'Not strong enough';
+        }
+        this.achievements.push(desc);
+        this.addXP(xp);
+        return desc;
+    }
 }
