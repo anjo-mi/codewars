@@ -55,4 +55,19 @@ class Warrior{
             this.rank = this.ranks[rank];
         }
     }
+
+    setLevel(){
+        let level = Math.floor(this.experience/100);
+        if (level > 100){
+            this.level = 100;
+        } else {
+            this.level = level;
+        }
+    }
+    
+    addXP(xp){
+        this.experience += xp;
+        this.setLevel();
+        this.setRank();
+    }
 }
