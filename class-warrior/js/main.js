@@ -101,7 +101,7 @@ class Warrior{
         }else if(this._level === enemyLevel + 1){
             this.addXP(5);
             return 'A good fight';
-        }else if(this._level === enemyLevel + 2){
+        }else if(this._level >= enemyLevel + 2){
             return 'Easy fight';
         }else if(this._level + 5 <= enemyLevel && Math.floor(this._level/10) < Math.floor(enemyLevel/10)){
             return `You've been defeated`;
