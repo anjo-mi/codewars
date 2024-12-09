@@ -12,7 +12,7 @@
 //     - experience increases in succesful battles
 //          - increase relative to warrior.level and var.level
 
-// battle rules
+    // battle rules
 //     - if enemy.level is ! 1 <= level <= 100, RETURN 'Invalid level'
 //     - if warrior.level === enemy.level, +10 experience
 //          - RETURN 'A good fight'
@@ -27,15 +27,6 @@
 //          - addedXP = 20 * diff * diff, +addedXP experience
 //          - RETURN 'An intense fight'
 
-// warrior.training([1,2,3])
-//      - warrior.achievements = []
-//      - 1 is desc 'you defeated kaido'
-//      - 2 is XP gained from training
-//      - 3 is minLevel required to train
-//          - if warrior.level >= minLevel, +XP experience
-//              - warrior.achievements.push(desc)
-//              - RETURN desc
-//          - if warrior.level < minLevel, RETURN 'Not strong enough'
 
 class Warrior{
     constructor(name){
@@ -67,7 +58,44 @@ class Warrior{
     
     addXP(xp){
         this.experience += xp;
+        if (this.experience > 10000){
+            this.experience = 10000;
+        }
         this.setLevel();
         this.setRank();
     }
+
+
+    battle(enemy){
+        if (enemy.level < 1 || enemy.level > 100){
+            return 'Invalid level';
+        }
+        if (this.level === enemy.level){
+            this.addXP(10);
+            return 'A good fight';
+        }else if(this.level === enemy.level + 1){
+            this.addXP(5);
+            return 'A good fight';
+        }else if(this.level === enemy.level + 2){
+            return 'Easy fight';
+        }else if(this.level + 5 < enemy.level && this.ranks.indexOf(this.rank) < this.ranks.indexOf(enemy.rank)){
+            return `You've been defeated`;
+        }else if(this.level < enemy.level){
+            let diff = enemy.level - this.level;
+            let addedXP = 20 * diff * diff;
+            this.addXP(addedXP);
+            return 'An intense fight';
+        }
+    }
+
+    // warrior.training([1,2,3])
+//      - warrior.achievements = []
+//      - 1 is desc 'you defeated kaido'
+//      - 2 is XP gained from training
+//      - 3 is minLevel required to train
+//          - if warrior.level >= minLevel, +XP experience
+//              - warrior.achievements.push(desc)
+//              - RETURN desc
+//          - if warrior.level < minLevel, RETURN 'Not strong enough'
+
 }
