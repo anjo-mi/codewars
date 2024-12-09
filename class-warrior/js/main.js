@@ -41,57 +41,72 @@
 class Warrior{
     constructor(name){
         this.name = name;
-        this.level = 1;
-        this.experience = 100;
-        this.achievements = [];
+        this._level = 1;
+        this._experience = 100;
+        this._achievements = [];
         this.ranks = ["Pushover", "Novice", "Fighter", "Warrior", "Veteran", "Sage", "Elite", "Conqueror", "Champion", "Master", "Greatest"];
-        this.rank = this.ranks[0];
+        this._rank = this.ranks[0];
     }
 
     setRank(){
-        let rank = Math.floor(this.level/10);
+        let rank = Math.floor(this._level/10);
         if (rank > 10){
-            this.rank = "Greatest";
+            this._rank = "Greatest";
         } else {
-            this.rank = this.ranks[rank];
+            this._rank = this.ranks[rank];
         }
     }
 
     setLevel(){
-        let level = Math.floor(this.experience/100);
+        let level = Math.floor(this._experience/100);
         if (level > 100){
-            this.level = 100;
+            this._level = 100;
         } else {
-            this.level = level;
+            this._level = level;
         }
     }
     
     addXP(xp){
-        this.experience += xp;
-        if (this.experience > 10000){
-            this.experience = 10000;
+        this._experience += xp;
+        if (this._experience > 10000){
+            this._experience = 10000;
         }
         this.setLevel();
         this.setRank();
     }
 
+    get level(){
+        return this._level;
+    }
+
+    get experience(){
+        return this._experience;
+    }
+
+    get rank(){
+        return this._rank;
+    }
+
+    get achievements(){
+        return this._achievements;
+    }
 
     battle(enemy){
         if (enemy.level < 1 || enemy.level > 100){
             return 'Invalid level';
         }
-        if (this.level === enemy.level){
+        if (this._level === enemy.level){
             this.addXP(10);
             return 'A good fight';
-        }else if(this.level === enemy.level + 1){
+        }else if(this._level === enemy.level + 1){
             this.addXP(5);
             return 'A good fight';
-        }else if(this.level === enemy.level + 2){
+        }else if(this._level === enemy.level + 2){
             return 'Easy fight';
-        }else if(this.level + 5 < enemy.level && this.ranks.indexOf(this.rank) < this.ranks.indexOf(enemy.rank)){
+        }else if(this._level + 5 < enemy.level && this.ranks.indexOf(this.rank) < this.ranks.indexOf(enemy.rank)){
             return `You've been defeated`;
-        }else if(this.level < enemy.level){
-            let diff = enemy.level - this.level;
+        }else if(this._level < enemy.level){
+            let diff = enemy.level - this._level;
             let addedXP = 20 * diff * diff;
             this.addXP(addedXP);
             return 'An intense fight';
@@ -101,7 +116,7 @@ class Warrior{
 
     training(regimen){
         const [ desc, xp, minLevel ] = regimen;
-        if (this.level < minLevel){
+        if (this._level < minLevel){
             return 'Not strong enough';
         }
         this.achievements.push(desc);
