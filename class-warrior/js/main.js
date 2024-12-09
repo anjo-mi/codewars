@@ -36,3 +36,23 @@
 //              - warrior.achievements.push(desc)
 //              - RETURN desc
 //          - if warrior.level < minLevel, RETURN 'Not strong enough'
+
+class Warrior{
+    constructor(name){
+        this.name = name;
+        this.level = 1;
+        this.experience = 100;
+        this.achievements = [];
+        this.ranks = ["Pushover", "Novice", "Fighter", "Warrior", "Veteran", "Sage", "Elite", "Conqueror", "Champion", "Master", "Greatest"];
+        this.rank = this.ranks[0];
+    }
+
+    setRank(){
+        let rank = Math.floor(this.level/10);
+        if (rank > 10){
+            this.rank = "Greatest";
+        } else {
+            this.rank = this.ranks[rank];
+        }
+    }
+}
