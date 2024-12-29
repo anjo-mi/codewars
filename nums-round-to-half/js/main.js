@@ -15,6 +15,10 @@ function solution(n){
     return Math.sign(n) * (Math.abs(int) + rounded)
   }
 
+  function solution(n){
+    return Math.round(n*2) / 2
+  }
+
 console.log(solution(4.2), 4)
 console.log(solution(4.4), 4.5)
 console.log(solution(4.6), 4.5)
