@@ -6,6 +6,13 @@ function capital(capitals){
     return arr
   }
 
+  function capital(capitals){
+    return capitals.reduce((arr,el,i) => {
+      arr.push(`The capital of ${capitals[i].state || capitals[i].country} is ${capitals[i].capital}`)
+      return arr
+    }, [])
+  }
+
 let state_capitals = [{state: 'Maine', capital: 'Augusta'}]
 console.log(capital(state_capitals)[0], "The capital of Maine is Augusta");
 
