@@ -4,6 +4,15 @@ function multiple(x) {
            !(x % 3) ? 'Bang'      : 'Miss'
   }
 
+  function multiple(x) {
+    switch (true){
+        case !(x % 15) : return 'BangBoom';
+        case !(x % 5) : return 'Boom';
+        case !(x % 3) : return 'Bang';      
+    }
+    return 'Miss'
+  }
+
   console.log(multiple(30), "BangBoom")
   console.log(multiple(3), "Bang")
   console.log(multiple(98),"Miss")
