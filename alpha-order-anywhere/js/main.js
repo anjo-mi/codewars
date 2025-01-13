@@ -5,6 +5,9 @@ function solve(s){
     return s.toLowerCase() === alpha.slice(i,i + s.length)
   }
 
+  function solve(s){
+    return 'abcdefghijklmnopqrstuvwxyz'.includes(s.toLowerCase().split('').sort().join(''))
+  }
 
 
   console.log(solve("abc"),true);
