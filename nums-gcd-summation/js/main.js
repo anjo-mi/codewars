@@ -1,6 +1,6 @@
 
 function solve(s,g){
-    if (!(s % g)) return -1;
+    if ((s % g)) return -1;
     const dividedSum = s / g;
     let m = 1;
     let n = dividedSum - m;
