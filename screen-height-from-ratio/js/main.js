@@ -8,6 +8,13 @@ function findScreenHeight(width, ratio) {
   }
 
 
+  function findScreenHeight(width, ratio) {
+    let [w,h] = ratio.split(':').map(Number);
+    const newHeight = Math.trunc(h * (width / w));
+    return `${width}x${newHeight}`
+  }
+
+
 console.log(findScreenHeight(1024,"4:3"), "1024x768");
 console.log(findScreenHeight(1280,"16:9"), "1280x720");
 console.log(findScreenHeight(3840,"32:9"), "3840x1080");
