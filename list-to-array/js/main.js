@@ -11,13 +11,13 @@ function listToArray(list) {
     return arr
   }
 
-  function listToArray(list){
+function listToArray(list){
     const arr = [];
     for (let node = list; node; node = node.next){
         arr.push(node.value)
     }
     return arr
-  }
+}
 
 var list1 = {value: 1, next: {value: 2, next: {value: 3, next: null}}};
 var list2 = {value: "foo", next: {value: "bar", next: null}};
