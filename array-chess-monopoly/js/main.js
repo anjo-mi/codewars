@@ -7,5 +7,12 @@ function game(n) {
       }
       arr.push(line)
     }
-    console.log(arr)
+    const final = arr.reduce((a,el) => {
+      a += el.reduce((acc, i) => {
+        acc += i[0] / i[1]
+        return acc
+      },0)
+      return a
+    }, 0)
+    console.log(final)
   }
