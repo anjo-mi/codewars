@@ -12,12 +12,15 @@ function howMuch(m,n){
         const b = (i - 2) / 7;
       console.log({c,b})
         if (Number.isInteger(c) && Number.isInteger(b)){
-            possible.push({
-                M: i,
-                B: b,
-                C: c
-            }.toArray())
+            possible.push([
+                `M: ${i}`,
+                `B: ${b}`,
+                `C: ${c}`
+            ])
         }
     }
     return possible
 }
+
+console.log(howMuch(1, 100), [["M: 37", "B: 5", "C: 4"], ["M: 100", "B: 14", "C: 11"]])
+console.log(howMuch(2950, 2950), [])
