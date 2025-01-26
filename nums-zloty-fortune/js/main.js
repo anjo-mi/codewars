@@ -16,7 +16,7 @@ function howMuch(m,n){
                 M: i,
                 B: b,
                 C: c
-            })
+            }.toArray())
         }
     }
     return possible
