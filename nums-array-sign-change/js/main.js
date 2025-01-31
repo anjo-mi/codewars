@@ -18,17 +18,15 @@
 
 // catchSignChange(arr) == 2;
 
-function catchSignChange(arr) {
-    if (arr.length === 0) return 0;
-    let alt = 0;
-    for (let i = 1 ; i < arr.length ; i++){
-      console.log(Math.sign(arr[i]), Math.sign(arr[i -1]))
-      if (Math.sign(arr[i]) !== Math.sign(arr[i - 1])){
-        alt++;
+const catchSignChange = function(arr){
+    var count=0;
+    for (i=0; i<arr.length; i++){
+      if ((arr[i]<0 && arr[i+1]>=0) || (arr[i]>=0 && arr[i+1]<0)){
+      count++;
       }
-    }
-    return alt;
-  }
+    };
+    return count;
+  };
 
   const tests = [
     [[], 0],
