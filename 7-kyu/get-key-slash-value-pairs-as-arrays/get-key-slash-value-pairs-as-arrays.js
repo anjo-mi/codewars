@@ -7,3 +7,10 @@ function keysAndValues(data){
   }
   return [props,values]
 }
+
+// Next Solution
+
+ 
+function keysAndValues(data){
+  return [Object.keys(data), Object.values(data)]
+}
