@@ -1,0 +1,1 @@
+<h2><a href=https://www.codewars.com/kata/567de72e8b3621b3c300000b/train/javascript target="_blank">Regexp Basics - is it a letter?</a></h2><h3>7 kyu</h3><p>Complete the code which should return <code>true</code> if the given object is a single ASCII letter (lower or upper case), <code>false</code> otherwise.</p>
