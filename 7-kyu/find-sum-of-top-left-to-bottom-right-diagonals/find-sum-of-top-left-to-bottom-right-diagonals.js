@@ -1,0 +1,1 @@
+const diagonalSum = (matrix) => matrix.reduce((a,el,i) => a + el[i],0)
