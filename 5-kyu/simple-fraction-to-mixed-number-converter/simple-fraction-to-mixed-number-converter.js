@@ -20,9 +20,13 @@ function mixedFraction(s){
   }
   if (den === 0) throw new Error('cannot divide by 0')
   let wholeNum = num >= 0 ? Math.floor(num / den) : Math.ceil(num / den);
-  num = Math.abs(num % den);
-  [num,den] = reduce(num,den)
-  return  wholeNum  &&  num ? `${wholeNum} ${num}/${den}` : 
-          wholeNum  && !num ? `${wholeNum}` : 
-          !wholeNum &&  num ? `${num}/${den}` : '0';
+  let rem = num - (wholeNum * den);
+  if (rem !== 0){
+    const neg = rem < 0;
+    [rem,den] = reduce(Math.abs(rem),den);
+    if (neg && !wholeNum) rem = -rem
+  }
+  return  wholeNum  &&  rem ? `${wholeNum} ${rem}/${den}` : 
+          wholeNum  && !rem ? `${wholeNum}` : 
+          !wholeNum &&  rem ? `${rem}/${den}` : '0';
 }
