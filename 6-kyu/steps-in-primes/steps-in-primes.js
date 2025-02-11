@@ -5,6 +5,7 @@ function step(g, m, n) {
     for ( let j = 2 ; j <= Math.sqrt(i) ; j++ ){
       if (i % j === 0){
         prime = false;
+        break;
       }
     }
     if (prime) primes.push(i);
