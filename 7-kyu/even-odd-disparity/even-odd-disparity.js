@@ -1,4 +1,7 @@
- 
+function solve(a){
+  return a.reduce((a,el) => Number.isInteger(el) ? (el % 2 === 0 ? a + 1 : a - 1) : a ,0)
+}
+
 function solve(a){
   const totals = a.reduce((acc,el) => {
     if (typeof el === 'number'){
