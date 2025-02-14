@@ -1,4 +1,3 @@
- 
 function driver(data) {
   let firstName = data[0].toUpperCase();
   let midName = data[1].toUpperCase();
@@ -10,6 +9,9 @@ function driver(data) {
   let gender = data[4];
   while (lastName.length < 5){
     lastName += '9';
+  }
+  if (lastName.length > 5){
+    lastName = lastName.slice(0,5);
   }
   let decade = birthYear.toString()[2];
   if (gender === 'F'){
