@@ -13,3 +13,9 @@ function binRota(arr){
   }
   return order;
 }
+
+function binRota(arr){
+  return arr.reduce((a,el,i) => {
+    return i % 2 ? a.concat(el.reverse()) : a.concat(el);
+  }, []);
+}
