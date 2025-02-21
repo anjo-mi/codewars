@@ -1,4 +1,6 @@
- 
+var numberFormat = (num) => num.toLocaleString()
+
+
 var numberFormat = function (num) {
   const isNeg = num < 0;
   if (isNeg) num *= -1;
