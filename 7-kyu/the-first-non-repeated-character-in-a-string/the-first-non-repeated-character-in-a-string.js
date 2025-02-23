@@ -1,4 +1,3 @@
- 
 function firstNonRepeated(s) {
   const occurs = s.split('').reduce((a,char) => {
     a[`${!isNaN(char) ? '+' + char : char}`] = (a[`${!isNaN(char) ? '+' + char : char}`] || 0) + 1;
