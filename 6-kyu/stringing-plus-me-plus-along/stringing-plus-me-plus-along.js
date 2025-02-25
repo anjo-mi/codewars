@@ -1,4 +1,3 @@
- 
 function createMessage(firstWord) {
   let str = [firstWord];
   return function nextWord(word){
