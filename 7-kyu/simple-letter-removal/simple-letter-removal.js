@@ -1,4 +1,3 @@
- 
 function solve(str, qty){
   let i = 0;
   let alpha = 'abcdefghijklmnopqrstuvwxyz';
