@@ -1,3 +1,4 @@
+ 
 function group(arr) {
   const groups = [];
   while(arr.length){
