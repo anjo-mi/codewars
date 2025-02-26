@@ -1,4 +1,3 @@
- 
 function lineupStudents(students){
   return students.split(' ').sort((a,b) => {
     return a.length > b.length 
