@@ -1,4 +1,3 @@
- 
 function noIfsNoButs(a, b) {
   let result = '';
   switch (true){
