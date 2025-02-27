@@ -1,4 +1,3 @@
- 
 var whatTimeIsIt = function(angle) {
   if (angle === 360) angle = 0;
   let totalMinutes = angle * 2;
