@@ -1,4 +1,3 @@
- 
 function replaceAll(seq, find, replace) {
   return Array.isArray(seq) 
           ? seq.map(el => el === find ? replace : el) 
