@@ -1,4 +1,3 @@
- 
 var Calculator = {
   average: function(...args) {
     return args.length 
