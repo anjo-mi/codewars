@@ -1,0 +1,1 @@
+<h2><a href=https://www.codewars.com/kata/561046a9f629a8aac000001d/train/javascript target="_blank">Array comparator</a></h2><h3>7 kyu</h3><p>You have two arrays in this kata, every array contains unique elements only. Your task is to calculate number of elements in the first array which are also present in the second array.</p>
