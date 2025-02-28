@@ -3,6 +3,7 @@ function createSecretHolder(secret) {
   console.log(secret)
   const obj = {
     setSecret(secret){
+      console.log(secret)
       this.sec = secret;
     },
     getSecret(){
