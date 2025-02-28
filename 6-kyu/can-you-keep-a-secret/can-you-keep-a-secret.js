@@ -1,9 +1,8 @@
  
 function createSecretHolder(secret) {
-  console.log(secret)
   const obj = {
+    sec: secret,
     setSecret(secret){
-      console.log(secret)
       this.sec = secret;
     },
     getSecret(){
