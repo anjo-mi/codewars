@@ -1,4 +1,3 @@
- 
 function createSecretHolder(secret) {
   const obj = {
     sec: secret,
