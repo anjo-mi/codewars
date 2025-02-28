@@ -1,5 +1,5 @@
- 
 function createSecretHolder(secret) {
+  console.log(secret)
   const obj = {
     setSecret(secret){
       this.sec = secret;
