@@ -1,11 +1,6 @@
-const shuffleIt = (arr,...pos) => {
-  for (let i = 0 ; i < pos.length ; i++){
-    const a = pos[i][0];
-    const b = pos[i][1];
-    const first = arr[a];
-    const second = arr[b];
-    arr[a] = second;
-    arr[b] = first;
+function shuffleIt(arr,...pos){
+  for (let [a,b] of pos){
+    [ arr[a], arr[b] ] = [ arr[b], arr[a] ]
   }
   return arr;
 }
