@@ -1,4 +1,3 @@
- 
 function save(sizes, hd) {
   let i = 0;
   let total = 0;
