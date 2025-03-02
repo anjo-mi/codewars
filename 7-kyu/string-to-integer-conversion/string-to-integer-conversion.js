@@ -1,6 +1,9 @@
- 
 function myParseInt(str) {
-  return str.trim().includes('.') 
-            ? NaN 
-            : parseInt(str.trim(),10)
+  const trim = str.trim();
+  
+  return trim.includes('.')
+          ? NaN
+        :!Number.isInteger(Number(trim)) 
+          ? NaN 
+          : parseInt(trim,10)
 }
