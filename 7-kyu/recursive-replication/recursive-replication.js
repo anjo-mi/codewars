@@ -1,4 +1,6 @@
+ 
 function replicate(times, number) {
-  if (times <= 0) return [];
-  return [number].concat(replicate(times - 1, number))
+  return times > 0 
+          ? [number, ...replicate(times - 1, number)]
+          : [];
 }
