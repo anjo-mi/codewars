@@ -1,15 +1,12 @@
  
-const cache = (fn) => {
-  let map = new Map();
-  return function(...args){
-    const key = JSON.stringify(args);
-    
-    if (map.has(key)){
-      return map.get(key)
+function cache(func) {
+  const obj = {};
+  return (...args) =>{
+    const key = JSON.stringify(...args);
+    if (!(key in obj)){
+      const result = func(...args)
+      obj[key] = result;
     }
-    
-    const result = fn.apply(this, args);
-    map.set(key, result);
-    return result;
+    return obj[key];
   }
 }
