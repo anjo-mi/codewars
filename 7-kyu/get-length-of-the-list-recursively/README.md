@@ -1,0 +1,1 @@
+<h2><a href=https://www.codewars.com/kata/57a83e447cb1f32de80000d5/train/javascript target="_blank">Get length of the list recursively</a></h2><h3>7 kyu</h3><p>Write funcion lenR which returns the length of a given list.Try no to cheat and provide recursive solution.</p>
