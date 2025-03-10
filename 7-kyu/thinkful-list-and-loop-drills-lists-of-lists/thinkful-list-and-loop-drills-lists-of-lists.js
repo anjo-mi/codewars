@@ -1,5 +1,2 @@
  
-function processData(data){
-  const diff = (arr) => arr[0] - arr[1];
-  return data.map(diff).reduce((a,el) => a * el, 1);
-}
+const processData = (data) => data.reduce((a,[arr1,arr2]) => a * (arr1 - arr2), 1);
