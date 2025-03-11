@@ -1,0 +1,1 @@
+<h2><a href=https://www.codewars.com/kata/57a06b07cf1fa58b2b000252/train/javascript target="_blank">Is it a letter?</a></h2><h3>7 kyu</h3><p>Write a function, <code>isItLetter</code> or <code>is_it_letter</code> or <code>IsItLetter</code>, which tells us if a given character is a letter or not. </p>
