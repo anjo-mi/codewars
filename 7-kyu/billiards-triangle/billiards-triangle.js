@@ -1,5 +1,4 @@
  
-function pyramid(balls, row = 1) {
-  if (balls < row) return row - 1;
-  return pyramid(balls - row, row + 1);
-}
+const pyramid = (balls, line = 1) => balls < line 
+          ? line - 1 
+          : pyramid(balls - line, line + 1);
