@@ -1,23 +1,13 @@
  
-function Node(data) {
+function Node(data, next) {
   this.data = data;
-  this.next = null;
+  this.next = next;
 }
 ​
 function push(head, data) {
-  const node = new Node(data);
-  node.next = head;
-  return node;
+  return new Node(data, head);
 }
 ​
 function buildOneTwoThree() {
-  let num = 3;
-  let head = null;
-  while (num > 0){
-    const node = new Node(num);
-    node.next = head;
-    head = node;
-    num--;
-  }
-  return head;
+  return [3,2,1].reduce(push,null)
 }
