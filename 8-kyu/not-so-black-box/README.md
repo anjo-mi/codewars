@@ -1,0 +1,1 @@
+<h2><a href=https://www.codewars.com/kata/57080f21d531cd94950007eb/train/javascript target="_blank">Not so black box</a></h2><h3>8 kyu</h3><p>The kata has been preloaded with a function called<code>blackBox</code>. Figure out what the function does.</p><p>You may need to think laterally!</p>
