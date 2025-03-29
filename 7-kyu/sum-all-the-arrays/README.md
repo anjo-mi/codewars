@@ -1,0 +1,1 @@
+<h2><a href=https://www.codewars.com/kata/5594463eaf1701909c0000d4/train/javascript target="_blank">Sum ALL the arrays!</a></h2><h3>7 kyu</h3><p>You are given an array of values.</p><p>Sum every number value in the array, and any nested arrays (to any depth).</p><p>Ignore all other types of values.</p>
