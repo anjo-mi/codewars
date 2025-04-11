@@ -1,4 +1,8 @@
  
-const arraySum = (arr) => {
-  return arr.flat(Infinity).reduce((a,el) => a + (typeof el === 'number' ? el : 0), 0);
+function arraySum(arr) {
+  return arr.reduce((a,el) => {
+    if(!Array.isArray(el) && typeof el === 'number' && el !== '.') a += el;
+    else if (Array.isArray(el)) {a += arraySum(el)};
+    return a;
+  }, 0)
 }
