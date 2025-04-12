@@ -1,9 +1,7 @@
- 
 function nextItem(xs, item) {
-  let foundItem = false;
-  for (const x of xs) {
-    if (foundItem) return x;
-    if (x === item) foundItem = true;
+  let found = false;
+  for (const x of xs){
+    if (found) return x;
+    if (x === item) found = true;
   }
-  return undefined;
 }
