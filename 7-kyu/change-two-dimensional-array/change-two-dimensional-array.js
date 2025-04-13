@@ -1,12 +1,7 @@
  
-function matrix(arr) {
-  return arr.map((nest,ind) => {
-    return nest.map((el,i) => {
-      if (i === ind){
-        if(el < 0) return 0;
-        else{return 1}
-      }
-      return el;
-    })
-  })
+function matrix(a) {
+  for (let i = 0 ; i< a.length ; i++){
+    a[i][i] = a[i][i] < 0 ? 0 : 1;
+  }
+  return a;
 }
