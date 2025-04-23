@@ -1,12 +1,12 @@
-// divisor = d**2
-// multiplier = d * 2 - 1
+ 
 function meanMax(d, r) {
-  let total = 0;
-  let n = 0;
-  while(n <= d){
-    const prob = (n/d)**r - ((n-1)/d)**r;
-    total += n * prob
-    n++
+    const avg = ((1+d)/2)
+    let total = 0;
+    let n = 0;
+    while(n <= d){
+      const prob = (n/d)**r - ((n-1)/d)**r;
+      total += n * prob
+      n++
+    }
+    return total - avg;
   }
-  return total - ((1+d)/2)
-}
