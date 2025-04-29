@@ -1,5 +1,2 @@
  
-function pak(s){
-  if(!s.trim()) return '';
-  return s.split(' ').join(' pak ');
-}
+const pak = s => s.trim().split(' ').join(' pak ');
