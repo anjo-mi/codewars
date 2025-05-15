@@ -8,4 +8,3 @@ function eqSumPowdig(hMax, exp) {
   }
   return results;
 }
-​
