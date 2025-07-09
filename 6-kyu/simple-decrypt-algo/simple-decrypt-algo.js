@@ -2,9 +2,8 @@
 function decrypt(enc) {
   const alpha = 'abcdefghijklmnopqrstuvwxyz';
   const counts = {};
-  for (const char of alpha) counts[char] = 0;
   for (const char of enc){
-    if (char in counts) counts[char]++;
+    counts[char] = (counts[char] || 0) + 1;
   }
-  return alpha.split('').map(char => counts[char]).join('');
+  return alpha.split('').map(char => counts[char] || 0).join('');
 }
