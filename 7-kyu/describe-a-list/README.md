@@ -1,0 +1,1 @@
+<h2><a href=https://www.codewars.com/kata/57a4a3e653ba3346bc000810/train/javascript target="_blank">Describe a list </a></h2><h3>7 kyu</h3><p>Write function describeList which returns "empty" if the list is empty or "singleton" if it contains only one element or "longer"" if more.</p>
