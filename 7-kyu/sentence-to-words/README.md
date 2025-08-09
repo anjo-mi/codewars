@@ -1,0 +1,1 @@
+<h2><a href=https://www.codewars.com/kata/57a05e0172292dd8510001f7/train/javascript target="_blank">Sentence to words</a></h2><h3>7 kyu</h3><p>Write function <code>splitSentence</code> which will create a list of strings from a string.</p><p>Example:</p><p><code>"hello world" -&gt; ["hello", "world"]</code></p>
