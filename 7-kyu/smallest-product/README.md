@@ -1,0 +1,1 @@
+<h2><a href=https://www.codewars.com/kata/5b6b128783d648c4c4000129/train/javascript target="_blank">Smallest Product</a></h2><h3>7 kyu</h3><p>Given a non-empty array of non-empty integer arrays, multiply the contents of each nested array and return the smallest total.</p><h3 id="example">Example</h3><pre><code>input = [  [1, 5],  [2],  [-1, -3]]result = 2</code></pre>
