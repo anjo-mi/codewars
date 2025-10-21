@@ -1,29 +1,16 @@
- 
+const isEdge = (r,c,arr) => !arr[r]?.[c] || arr[r][c] === 'O' ? 1 : 0;
+​
 function landPerimeter(arr) {
-  let count = 0;
-  const directions = [
-    [1,0],
-    [-1,0],
-    [0,-1],
-    [0,1]
-  ];
-  for (let i = 0 ; i < arr.length ; i++){
-    for (let j = 0 ; j < arr[i].length ; j++){
-      if (arr[i][j] === 'O') continue;
-      if (arr[i][j] === 'X'){
-        for (let dir of directions){
-          const [dx,dy] = dir;
-          const newX = i + dx;
-          const newY = j + dy;
-          
-          if (newX < 0 || newX >= arr.length || 
-              newY < 0 || newY >= arr[i].length || 
-              arr[newX][newY] === 'O'){
-            count++;
-          }
-        }
+  let total = 0;
+  for (let r = 0 ; r < arr.length ; r++){
+    for (let c = 0 ; c < arr[r].length ; c++){
+      if (arr[r][c] === 'X'){
+        total += isEdge(r+1,c,arr);
+        total += isEdge(r-1,c,arr);
+        total += isEdge(r,c+1,arr);
+        total += isEdge(r,c-1,arr);
       }
     }
   }
-  return `Total land perimeter: ${count}`;
+  return `Total land perimeter: ${total}`
 }
