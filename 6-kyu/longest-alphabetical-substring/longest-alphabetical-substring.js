@@ -6,13 +6,13 @@ const order = alpha.split('').reduce((a,el,i) => {
 }, {});
 ​
 function longest(str) {
-  let longest = '',
-      j = 1;
-  while (j <= str.length){
+  let i = 0,
+      longest = '';
+  while (i < str.length){
     let curr = '';
-    while (j <= str.length && ( !curr || order[str[j-1]] >= order[curr[curr.length-1]] )){
-      curr += str[j-1];
-      j++;
+    while (i < str.length && ( !curr || order[str[i]] >= order[curr[curr.length-1]] )){
+      curr += str[i];
+      i++;
     }
     if (curr.length > longest.length) longest = curr;
   }
