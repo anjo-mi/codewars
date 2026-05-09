@@ -1,10 +1,12 @@
  
-const fact = (n , memo ={}) => {
-  if (n in memo) return memo[n];
-  if (n === 1) return 1;
-  return memo[n] = n * fact(n-1,memo);
-}
-​
 function sumFactorial(arr){
-  return arr.reduce((a, el) => a + fact(el), 0);
+  let result = 0;
+  let f = 1
+  const max = Math.max(...arr);
+  const a = Array(max);
+  for (let i = 1 ; i <= max ; i++){
+    f *= i;
+    a[i] = f;
+  }
+  return arr.reduce((acc,el) => acc + a[el], 0);
 }
