@@ -1,4 +1,2 @@
  
-export function hero(bullets: number, dragons: number): boolean {
-  return bullets / 2 >= dragons;
-}
+export const hero = (b: number, d: number): boolean  => b / d >= 2;
