@@ -15,3 +15,4 @@ export const evenDigitSquares = (a: number, b: number): number[] => {
   }
   return res;
 }
+​
