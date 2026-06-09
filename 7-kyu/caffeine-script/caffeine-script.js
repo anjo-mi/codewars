@@ -1,8 +1,6 @@
-function caffeineBuzz(n){
-  switch (true){
-      case ( !(n % 4) && !(n % 3) ) : return 'CoffeeScript'; break;
-      case ( !(n % 2) && !(n % 3) ) : return 'JavaScript'; break;
-      case ( !(n % 3) ) : return 'Java'; break;
-      default : return 'mocha_missing!'
-  }
+ 
+function caffeineBuzz(n) {
+  return !(n % 12) ? 'CoffeeScript'
+        :!(n %  6) ? 'JavaScript'
+        :!(n %  3) ? 'Java' : 'mocha_missing!';
 }
