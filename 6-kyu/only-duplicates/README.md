@@ -1,0 +1,1 @@
+<h2><a href=https://www.codewars.com/kata/5a1dc4baffe75f270200006b/train/javascript target="_blank">Only Duplicates</a></h2><h3>6 kyu</h3><p>Given a string, remove any characters that are unique from the string.</p><p>Example: </p><p>input: "abccdefee"</p><p>output: "cceee"</p>
