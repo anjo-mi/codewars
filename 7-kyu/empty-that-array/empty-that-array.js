@@ -1,5 +1,5 @@
  
-function empty(array) {
-  array.splice(0,array.length);
-  return array;
-}
+const empty = (arr) => {
+  arr.length = 0;
+  return arr;
+};
