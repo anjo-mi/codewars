@@ -1,5 +1,5 @@
 export function countPositivesSumNegatives(input: number[] | null): number[] {
-  if (!input || !input.length) return [];
+  if (!input?.length) return [];
   const res:[number,number] = [0,0];
   for (const num of input){
     if (num > 0) res[0]++;
