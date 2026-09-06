@@ -1,4 +1,3 @@
- 
 export function positiveSum(arr:number[]):number {
-  return arr.reduce((a,el) => el > 0 ? a + el : a , 0);
+  return arr.reduce((a,el) => a += el > 0 ? el : 0 , 0);
 }
