@@ -1,4 +1,3 @@
- 
 function pathFinding(path) {
   const locs = [{x:3,y:2}, {x:-4,y:3}];
   const robotLoc = {x:0,y:0};
